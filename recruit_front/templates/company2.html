@@ -1,0 +1,292 @@
+{% extends "layout2.html" %}
+
+{% block page_name %}
+<title>REC:ruit - Visual Resume</title>
+{% endblock %}
+
+{% block page_category %}
+                                    <li>
+                                    <a href="/">홈</a>
+                                    </li>
+									<li>
+										<a href="#">직무 카테고리</a>
+									</li>
+
+									<li>
+										<a href="#">커리어 쌓기</a>
+									</li>
+
+									<li>
+										<a href="#">채용 공고</a>
+									</li>
+
+
+									<li class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"><!-- THEMATIC -->
+										<a class="dropdown-toggle noicon" href="/employer">
+											<span class="badge badge-danger float-right fs-11">mode</span>
+											<b>기업</b>
+										</a>
+									</li>
+{% endblock %}
+
+{% block company_info %}
+<section class="page-header page-header-xs" >
+				<div class="container">
+
+					<h1>요술콩</h1>
+
+					<!-- breadcrumbs -->
+					<ol class="breadcrumb">
+						<li><a href="/">Home</a></li>
+						<li class="active">요술콩</li>
+					</ol><!-- /breadcrumbs -->
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+
+
+
+			<!-- -->
+			<section style="background-image: url('../static/demo_files/images/1200x800/00.jpg');">
+				<div class="container">
+
+					<blockquote>
+						<h3>요술콩 소개</h3>
+						<p>요술콩은 무엇이든 될 수 있는 요술콩의 멋진 모험을 응원하는 요술램프가 되고자 2020년 설립된 모바일 기반 개발업체 입니다.</p>
+					</blockquote>
+
+
+							</div>
+						</section>
+						<!-- / -->
+
+
+
+
+						<!-- -->
+						<section>
+							<div class="container">
+
+								<blockquote class="reverse">
+									<h3>모집하는 팀원</h3>
+									<p> 모바일 게임에 대한 흥미와 이해도가 높고 게임 철학이 요술콩 어드벤처가 추구하는 비전과 맞는 분을 찾습니다.
+									</p>
+								</blockquote>
+
+							</div>
+						</section>
+						<!-- / -->
+
+
+
+
+
+
+						<!-- -->
+						<section style="background-image: url('../static/demo_files/images/1200x800/01.jpg');">
+							<div class="container">
+
+								<blockquote>
+									<h3>담당 업무</h3>
+									<p> 게임기획 <br>
+										- 2D 모바일 신규 게임 <br>
+										- 게임 스토리 및 캐릭터 <br>
+										- 게임 캐릭터 관련 콘텐츠 기획 <br>
+										<br>
+
+										게임 이벤트 기획 <br>
+										- 홍보물 및 이벤트 기획 <br>
+										- 브랜드 관련 온 / 오프라인 이벤트 <br>
+										- 비쥬얼 기반의 콘텐츠 기획 및 제작 <br>
+										- 옴니 채널 마케팅, 각종 디바이스에 맞는 콘텐츠 기획</p>
+<!--									<cite>Albert Einstein</cite>-->
+								</blockquote>
+
+<!--			&lt;!&ndash; pre code &ndash;&gt;-->
+<!--			<div class="text-left mt-20">-->
+<!--			<a href="javascript:;" onclick="jQuery('#pre-2').slideToggle();">Show Code</a>-->
+<!--			</div>-->
+<!--			<pre id="pre-2" class="text-left rad-0 text-danger hide">-->
+<!--			&lt;blockquote&gt;-->
+<!--				&lt;h4&gt;Blockquote + Cite&lt;/h4&gt;-->
+<!--				&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc.&lt;/p&gt;-->
+<!--				&lt;cite&gt;Albert Einstein&lt;/cite&gt;-->
+<!--			&lt;/blockquote&gt;-->
+<!--			</pre>-->
+<!--			&lt;!&ndash; /pre code &ndash;&gt;-->
+
+							</div>
+						</section>
+						<!-- / -->
+
+
+
+
+						<!-- -->
+						<section>
+							<div class="container">
+
+								<blockquote class="reverse">
+									<h3>지원자격</h3>
+									<p> 신입 지원 가능 <br> 졸업예정자 혹은 졸업자 <br> 구글 애널리틱스, 네이버 브랜드 검색/광고 포털 숙련자 우대 <br>
+									그래픽툴(어도비, 인디자인) 사용자 우대</p>
+								</blockquote>
+
+
+							</div>
+						</section>
+						<!-- / -->
+
+
+
+
+						<!-- -->
+						<section style="padding : 50px">
+							<div class="container" style="text-align: center;">
+									<a class="btn btn-default btn-lg wow fadeIn" data-wow-delay="1.5s" href="#">지원하기</a>
+							</div>
+						</section>
+						<!-- / -->
+
+
+
+
+			<!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-md-3">
+							<!-- Footer Logo -->
+							<img class="footer-logo" src="{{ url_for('static', filename='assets/images/_smarty/logo_footer_make.png')}}" alt="" />
+
+							<!-- Small Description -->
+							<p>Research through Question </p>
+
+							<!-- Contact Address -->
+							<address>
+								<ul class="list-unstyled">
+									<li class="footer-sprite address">
+										PO Box 07207<br>
+										서울 영등포구 양평로21길 26, 2301<br>
+										(아이에스비즈타워)<br>
+									</li>
+									<li class="footer-sprite phone">
+										Phone: 02-6953-8053
+									</li>
+									<li class="footer-sprite email">
+										<a href="mailto:labq@labq.kr">labq@labq.kr</a>
+									</li>
+								</ul>
+							</address>
+							<!-- /Contact Address -->
+
+						</div>
+
+						<div class="col-md-3">
+
+							<!-- Latest Blog Post -->
+							<h4 class="letter-spacing-1">LATEST NEWS</h4>
+							<ul class="footer-posts list-unstyled">
+								<li>
+									<a href="#">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue</a>
+									<small>29 June 2017</small>
+								</li>
+								<li>
+									<a href="#">Nullam id dolor id nibh ultricies</a>
+									<small>29 June 2017</small>
+								</li>
+								<li>
+									<a href="#">Duis mollis, est non commodo luctus</a>
+									<small>29 June 2017</small>
+								</li>
+							</ul>
+							<!-- /Latest Blog Post -->
+
+						</div>
+
+						<div class="col-md-2">
+
+							<!-- Links -->
+							<h4 class="letter-spacing-1">EXPLORE SMARTY</h4>
+							<ul class="footer-links list-unstyled">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Our Services</a></li>
+								<li><a href="#">Our Clients</a></li>
+								<li><a href="#">Our Pricing</a></li>
+								<li><a href="#">Smarty Tour</a></li>
+								<li><a href="#">Contact Us</a></li>
+							</ul>
+							<!-- /Links -->
+
+						</div>
+
+						<div class="col-md-4">
+
+							<!-- Newsletter Form -->
+							<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
+							<p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
+
+							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form>
+							<!-- /Newsletter Form -->
+
+							<!-- Social Icons -->
+							<div class="mt-20">
+								<a href="#" class="social-icon social-icon-border social-facebook float-left" data-toggle="tooltip" data-placement="top" title="Facebook">
+
+									<i class="icon-facebook"></i>
+									<i class="icon-facebook"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-twitter float-left" data-toggle="tooltip" data-placement="top" title="Twitter">
+									<i class="icon-twitter"></i>
+									<i class="icon-twitter"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-gplus float-left" data-toggle="tooltip" data-placement="top" title="Google plus">
+									<i class="icon-gplus"></i>
+									<i class="icon-gplus"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-linkedin float-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
+									<i class="icon-linkedin"></i>
+									<i class="icon-linkedin"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-rss float-left" data-toggle="tooltip" data-placement="top" title="Rss">
+									<i class="icon-rss"></i>
+									<i class="icon-rss"></i>
+								</a>
+
+							</div>
+							<!-- /Social Icons -->
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li>&bull;</li>
+							<li><a href="#">Privacy</a></li>
+						</ul>
+						&copy; All Rights Reserved, Company LTD
+					</div>
+				</div>
+			</footer>
+{% endblock %}

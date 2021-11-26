@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		{% block page_name %}
+		{% endblock %}
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- CORE CSS -->
+		<link href="{{ url_for('static', filename='assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+
+		
+		<!-- THEME CSS -->
+		<link href="{{ url_for('static', filename='assets/css/essentials.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{ url_for('static', filename='assets/css/layout.css')}}" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="{{ url_for('static', filename='assets/css/header-1.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{ url_for('static', filename='assets/css/color_scheme/green.css')}}" rel="stylesheet" type="text/css" id="color_scheme" />
+	</head>
+
+	<!--
+		AVAILABLE BODY CLASSES:
+		
+		smoothscroll 			= create a browser smooth scroll
+		enable-animation		= enable WOW animations
+
+		bg-grey					= grey background
+		grain-grey				= grey grain background
+		grain-blue				= blue grain background
+		grain-green				= green grain background
+		grain-blue				= blue grain background
+		grain-orange			= orange grain background
+		grain-yellow			= yellow grain background
+		
+		boxed 					= boxed layout
+		pattern1 ... patern11	= pattern background
+		menu-vertical-hide		= hidden, open on click
+		
+		BACKGROUND IMAGE [together with .boxed class]
+		data-background="assets/images/_smarty/boxed_background/1.jpg"
+	-->
+	<body class="smoothscroll enable-animation">
+
+		<!-- SLIDE TOP -->
+		<div id="slidetop">
+
+			<div class="container">
+				
+				<div class="row">
+
+					<div class="col-md-4">
+						<h6><i class="icon-star"></i> WHY REC:ruit</h6>
+						<p> 텍스트로는 전달하지 못했던
+							<br>당신의 자신감, 센스를 표현하세요!</p>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+						<ul class="list-unstyled">
+							<li><b>A </b>서울 영등포구 양평로21길 26, 2301호(아이에스비즈타워)</li>
+							<li><b>P </b> 02-6953-8053 <br /> F 0504-140-8053 </li>
+							<li><b>E </b>labq@labq.kr</li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+
+			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+
+		</div>
+		<!-- /SLIDE TOP -->
+
+
+		<!-- 
+			OVERLAY NAVIGATION 
+			Outside of #wrapper
+			
+			CSS HEADER REQUIRED:
+			<link href="assets/css/header-0.css" rel="stylesheet" type="text/css" />
+		-->
+
+<!-- wrapper -->
+		<div id="wrapper">
+
+			<!--
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+			<div id="header" class="navbar-toggleable-md sticky clearfix">
+
+				<!-- SEARCH HEADER -->
+				<div class="search-box over-header">
+					<a id="closeSearch" href="#" class="fa fa-remove"></a>
+
+					<form action="page-search-result-1.html" method="get">
+						<input type="text" class="form-control" placeholder="SEARCH" />
+					</form>
+				</div>
+				<!-- /SEARCH HEADER -->
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- BUTTONS -->
+						<ul class="float-right nav nav-pills nav-second-main">
+
+							<!-- SEARCH -->
+							<li class="search">
+								<a href="javascript:;">
+									<i class="fa fa-search"></i>
+								</a>
+							</li>
+							<!-- /SEARCH -->
+
+
+						</ul>
+						<!-- /BUTTONS -->
+
+
+						<!-- Logo -->
+						<a class="logo float-left" href="/">
+							<img src="{{ url_for('static', filename='assets/images/_smarty/logo.png')}}" alt="" />
+						</a>
+
+						<!--
+							Top Nav
+
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse">
+							<nav class="nav-main">
+
+								<!--
+									NOTE
+
+									For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
+									Direct Link Example:
+
+									<li>
+										<a href="#">HOME</a>
+									</li>
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main">
+									{% block page_category %}
+									{% endblock %}
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
+
+			<!--
+				PAGE HEADER
+
+				CLASSES:
+					.page-header-xs	= 20px margins
+					.page-header-md	= 50px margins
+					.page-header-lg	= 80px margins
+					.page-header-xlg= 130px margins
+					.dark			= dark page header
+
+					.shadow-before-1 	= shadow 1 header top
+					.shadow-after-1 	= shadow 1 header bottom
+					.shadow-before-2 	= shadow 2 header top
+					.shadow-after-2 	= shadow 2 header bottom
+					.shadow-before-3 	= shadow 3 header top
+					.shadow-after-3 	= shadow 3 header bottom
+			-->
+			{% block company_info %}
+			{% endblock %}
+			<!-- /FOOTER -->
+
+		</div>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+		<!-- PRELOADER -->
+		<div id="preloader">
+			<div class="inner">
+				<span class="loader"></span>
+			</div>
+		</div><!-- /PRELOADER -->
+
+
+		<!-- JAVASCRIPT FILES -->
+		<script>var plugin_path = "{{ url_for('static', filename='assets/plugins/')}}";</script>
+		<script src="{{ url_for('static', filename='assets/plugins/jquery/jquery-3.4.1.min.js')}}"></script>
+		<script src="{{ url_for('static', filename='assets/js/scripts.js')}}"></script>
+
+		
+		<!-- SWIPER SLIDER -->
+		<script src="{{ url_for('static', filename='assets/plugins/slider.swiper/dist/js/swiper.min.js')}}"></script>
+		<script src="{{ url_for('static', filename='assets/js/view/demo.swiper_slider.js')}}"></script>
+
+	</body>
+</html>

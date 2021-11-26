@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block page_name %}
+<title>REC:ruit - for employer</title>
+{% endblock %}
+
+{% block page_category %}
+										<li>
+										<a href="/employer">관리자 홈</a>
+										</li>
+
+										<li>
+											<a href="#">관리자 가입</a>
+										</li>
+
+										<li>
+											<a href="#">지원자 확인하기</a>
+										</li>
+									<li class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"><!-- THEMATIC -->
+										<a class="dropdown-toggle noicon" href="/">
+											<span class="badge badge-danger float-right fs-11">mode</span>
+											<b>REC: 홈</b>
+										</a>
+
+									</li>
+{% endblock %}
+
+{% block slider %}
+	<!--
+					SWIPPER SLIDER PARAMS
+
+					data-effect="slide|fade|coverflow"
+					data-autoplay="2500|false" 						(remove to disable autoplay)
+				-->
+				<div class="swiper-container" data-effect="slide" data-autoplay="false">
+					<div class="swiper-wrapper">
+
+						<!-- SLIDE 1 -->
+						<div class="swiper-slide" style="background-image: url('../static/demo_files/images/1200x800/unsplash5.jpg');">
+							<div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+							<div class="display-table">
+								<div class="display-table-cell vertical-align-middle">
+									<div class="container">
+
+										<div class="row">
+											<div class="text-center col-md-8 col-12 offset-md-2">
+
+												<h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">REC:ruit</h1>
+												<p class="lead font-lato fw-300 hidden-xs-down wow fadeInUp" data-wow-delay="0.6s"> 개성과 잠재력을 가진 인재를 담습니다.</p>
+
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /SLIDE 1 -->
+
+
+						<!-- SLIDE 2 -->
+						<div class="swiper-slide">
+							<div class="overlay dark-3"><!-- dark overlay [1 to 9 opacity] --></div>
+
+							<div class="slider-video">
+								<video poster="{{ url_for('static', filename='demo_files/images/video/officeloop_low.mp4')}}" preload="auto" loop autoplay muted>
+									<source src="{{ url_for('static', filename='demo_files/images/video/officeloop_low.mp4')}}" type='video/webm' />
+									<source src="{{ url_for('static', filename='demo_files/images/video/officeloop_low.mp4')}}" type='video/mp4' />
+								</video>
+							</div>
+
+
+							<div class="display-table">
+								<div class="display-table-cell vertical-align-middle">
+									<div class="container">
+
+										<div class="row">
+											<div class="col-md-5 col-12">
+
+												<h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">READY to REC:</h1>
+												<p class="lead font-lato fw-300 hidden-xs-down wow fadeInUp" data-wow-delay="0.6s">준비된 인재들과 함께합니다. </p>
+
+											</div>
+											<div class="col-md-7 hidden-xs-down text-right">
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /SLIDE 2 -->
+
+
+						<!-- SLIDE 3 -->
+						<div class="swiper-slide" style="background-image: url('../static/demo_files/images/1200x800/unsplash6.jpg');">
+							<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
+
+							<div class="display-table">
+								<div class="display-table-cell vertical-align-middle">
+									<div class="container">
+
+										<div class="row">
+											<div class="text-center col-md-8 col-12 offset-md-2">
+
+												<h1 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s">REC: Paradigm</h1>
+												<p class="lead font-lato fw-300 hidden-xs-down wow fadeInUp" data-wow-delay="0.6s">채용 패러다임의 전환, 지금 시작합니다.</p>
+
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /SLIDE 3 -->
+
+					</div>
+
+					<!-- Swiper Pagination -->
+					<div class="swiper-pagination"></div>
+
+					<!-- Swiper Arrows -->
+					<div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+					<div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+				</div>
+{% endblock %}
+
+{% block title %}
+<h2 class="bold font-raleway wow fadeInUp" data-wow-delay="0.4s" style="text-align:center" >지원자 목록</h2>
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+
+					<div class="row">
+
+						<div class="col-md-4">
+
+							<div class="heading-title heading-border-bottom heading-color">
+								<h3>FORESE</h3>
+							</div>
+
+							<p>Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea. Utinam ipsum everti necessitatibus at fuisset splendide.</p>
+
+							<a href="#">
+								<!-- /word rotator -->
+								<span class="word-rotator" data-delay="2000">
+									<span class="items">
+										<span>자세히 보기</span>
+										<span>지원하기</span>
+									</span>
+								</span><!-- /word rotator -->
+								<i class="glyphicon glyphicon-menu-right fs-12"></i>
+							</a>
+
+						</div>
+
+						<div class="col-md-4">
+							<div class="heading-title heading-border-bottom heading-color">
+								<h3>요술콩</h3>
+							</div>
+							<p>Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea. Utinam ipsum everti necessitatibus at fuisset splendide.</p>
+
+							<a href="#">
+								<!-- /word rotator -->
+								<span class="word-rotator" data-delay="2000">
+									<span class="items">
+										<span>자세히 보기</span>
+										<span>지원하기</span>
+									</span>
+								</span><!-- /word rotator -->
+								<i class="glyphicon glyphicon-menu-right fs-12"></i>
+							</a>
+
+						</div>
+
+						<div class="col-md-4">
+							<div class="heading-title heading-border-bottom heading-color">
+								<h3>PASO</h3>
+							</div>
+							<p>Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea. Utinam ipsum everti necessitatibus at fuisset splendide.</p>
+
+							<a href="#">
+								<!-- /word rotator -->
+								<span class="word-rotator" data-delay="2000">
+									<span class="items">
+										<span>자세히 보기</span>
+										<span>지원하기</span>
+									</span>
+								</span><!-- /word rotator -->
+								<i class="glyphicon glyphicon-menu-right fs-12"></i>
+							</a>
+
+						</div>
+
+					</div>
+
+				</div>
+{% endblock %}
