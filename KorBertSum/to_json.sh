@@ -1,0 +1,1 @@
+python article_to_json.py -i ../../news_morp_ext.csv -o ./json_data/news_json.json

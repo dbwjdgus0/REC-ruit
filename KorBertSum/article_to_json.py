@@ -10,33 +10,32 @@ import glob
 import numpy as np
 from tqdm import tqdm
 
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-mode', default='train', type=str, choices=['train','valid','test'])
-    parser.add_argument('-news_dir', default='', type=str, help='target file to json')
-    parser.add_argument('-output', default='', type=str, help='json output directory')
+    parser.add_argument('-i', default='', type=str, help='target file to json')
+    parser.add_argument('-o', default='./output', type=str, help='json output directory')
     
 #    parser.random_state("-random_state", defalut="", type=int, help="random state")
     
     args = parser.parse_args()
     mode = args.mode
-    news_dir = args.news_dir
-    output = args.output
+    csv_file = args.i
+    output = args.o
     
     # Initialize directory
     if not os.path.exists(output):
         os.makedirs(output)
         
-    if not news_dir.endswith("csv"):
+    if not csv_file.endswith("csv"):
         raise AssertionError("file is not a csv")
     
         ### main process ###
-    mydf = pd.read_csv(news_dir)
+    mydf = pd.read_csv(csv_file, index_col=0)
     
     list_dic = []
     for idx, row in mydf.iterrows():
-        raw = row['article_morp']
+        raw = row['morp']
         target_idx = ast.literal_eval(row['extractive'])
         
         sentences = raw.split(' ./SF ')[:-1]

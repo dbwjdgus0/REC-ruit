@@ -13,21 +13,21 @@ from glob import glob
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--api_key', type=str, default='', help='etri api key')
-    parser.add_argument('--directory', type=str, default='output', help='JSON storage directory')
+    parser.add_argument('--out_dir', type=str, default='output', help='JSON storage directory')
     parser.add_argument('--input', type=str, default='', help='input text file path')
-    parser.add_argument('--first_index', type=int, default=0, help='First index of articles')
-    parser.add_argument('--last_index', type=int, default=5000, help='Last (latest) index of articles')
+    parser.add_argument('-f', type=int, default=0, help='First index of articles')
+    parser.add_argument('-l', type=int, default=5000, help='Last (latest) index of articles')
 
     args = parser.parse_args()
     api_key = args.api_key
-    directory = args.directory
+    directory = args.out_dir
     input = args.input
-    first_index = args.first_index
-    last_index = args.last_index
+    first_index = args.f
+    last_index = args.l
 
     # Initialize directory
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    # if not os.path.exists(directory):
+    #     os.makedirs(directory)
         
     ### main process ###
     lines = []
