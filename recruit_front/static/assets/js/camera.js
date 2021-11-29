@@ -77,7 +77,7 @@ function playVideo() {
     recordingPlayer.play()
 
     downloadButton.href=recordingPlayer.src;
-    downloadButton.download = `recording_${new Date()}.mp4`;
+    downloadButton.download = 'recording[지원자명].mp4';
     swal("녹화 내용 재생", "녹화된 영상은 다운로드 가능합니다", 'success');
 	previewDIV.style.display = "none";
 	recordingDIV.style.display  = "";
