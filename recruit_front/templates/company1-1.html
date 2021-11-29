@@ -49,36 +49,7 @@
 	-->
 	<body class="smoothscroll enable-animation">
 
-		<!-- SLIDE TOP -->
-		<div id="slidetop">
 
-			<div class="container">
-
-				<div class="row">
-
-					<div class="col-md-4">
-						<h6><i class="icon-star"></i> WHY REC:ruit</h6>
-						<p> 텍스트로는 전달하지 못했던
-							<br>당신의 자신감, 센스를 표현하세요!</p>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-						<ul class="list-unstyled">
-							<li><b>A </b>서울 영등포구 양평로21길 26, 2301호(아이에스비즈타워)</li>
-							<li><b>P </b> 02-6953-8053 <br /> F 0504-140-8053 </li>
-							<li><b>E </b>labq@labq.kr</li>
-						</ul>
-					</div>
-
-				</div>
-
-			</div>
-
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
-
-		</div>
-		<!-- /SLIDE TOP -->
 
 
 		<!--
@@ -252,26 +223,33 @@
 						<button class="record-button">녹화</button>
 						<button class="stop-button">중지</button>
 						<button class="play-button">녹화 보기</button>
-						<a class="download-button">다운로드</a>
+						<button><a class="download-button">다운로드</a></button>
+<!--						<button class="show-recordview-button">테스트1</button>-->
+<!--						<button class="show-playview-button">테스트2</button>-->
 					</div>
 					<div class="video-container">
-						<div class="video-item" style="padding-right : 15px;">
+						<div class="video-item" id=preview-div>
 							<h3>시작 화면</h3>
 							<video autoplay muted id="preview"></video>
 						</div>
-						<div class="video-item" style="padding-left : 15px;">
+						<div class="video-item" id=recoding-div style="display: none; padding-right: 15px;">
 							<h3>보기 화면</h3>
 							<video id="recording"></video>
+						</div>
+						<div class="video-item" id= recoding-script-div style="display: none; padding-left: 15px;">
+							<h3>스크립트</h3>
+							<div id="recording-script"></div>
 						</div>
 					</div>
 				</div>
 				<script src="../static/assets/js/camera.js"></script>
+				<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 				<div class="container">
 
 				</div>
 			</section>
-			<section>
-
+			<section style="text-align: center;">
+			<a class="btn btn-default btn-lg wow fadeIn" data-wow-delay="1.0s" href="/company1-1">다음</a>
 			</section>
 
 		</div>
