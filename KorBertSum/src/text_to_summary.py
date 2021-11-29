@@ -468,7 +468,7 @@ def _lazy_dataset_loader(pt_file):
 def News_to_input(text, openapi_key):
     newstemp = do_lang(openapi_key,text)
     news = newstemp.split(' ./SF ')[:-1]
-    bertdata = BertData('../../korBert_models/001_bert_morp_pytorch/vocab.korean_morp.list')
+    bertdata = BertData('../../korbert/001_bert_morp_pytorch/vocab.korean_morp.list')
     tmp = bertdata.preprocess(news)
     b_data_dict = {"src":tmp[0],
                "labels":[0,1,2],
@@ -524,10 +524,10 @@ if __name__=='__main__':
     model_flags = ['hidden_size', 'ff_size', 'heads', 'inter_layers','encoder','ff_actv', 'use_interval','rnn_size']
     
     ####################################################
-    openapi_key = '220c9e91-8f30-442a-a8a5-5dffc2aab0c6'
+    openapi_key = 'd8b75365-827a-4892-ba76-0fa4f31e590f'
     ####################################################
 
-    test = ""
+    test = " ".join([ line.strip() for line in sys.stdin.readlines()])
     input_ids = News_to_input(test, openapi_key)        
     summaried = summary(args, input_ids, -1, '', None)
     pred_lst = list(summaried[0][:3])
@@ -535,4 +535,6 @@ if __name__=='__main__':
     for i,a in enumerate(list(map(lambda x: x.strip(),test.split('.')))):
         if i in pred_lst:
             final_text = final_text+a+'. '
+    
+    print(final_text)
     
