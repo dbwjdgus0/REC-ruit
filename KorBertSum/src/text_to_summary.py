@@ -486,11 +486,11 @@ if __name__=='__main__':
         "encoder":'classifier',
         "mode":'summary',
         "bert_data_path":'../bert_data/korean',
-        "model_path":'../models/bert_classifier_test',
-        "bert_model":'../../korBert_models/001_bert_morp_pytorch',
+        "model_path":'../models/bert_classifier_10000',
+        "bert_model":'../../korbert/001_bert_morp_pytorch',
         "result_path":'../results/korean',
         "temp_dir":'.',
-        "bert_config_path":'../../korBert_models/001_bert_morp_pytorch/bert_config.json',
+        "bert_config_path":'../../korbert/001_bert_morp_pytorch/bert_config.json',
         "batch_size":1000,
         "use_interval":True,
         "hidden_size":128,
@@ -512,7 +512,7 @@ if __name__=='__main__':
         "visible_gpus":'-1',
         "gpu_ranks":'0',
         "log_file":'../logs/bert_classifier',
-        "test_from":'../models/bert_classifier_test/model_step_1000.pt'
+        "test_from":'../models/bert_classifier_10000/model_step_1000.pt'
     })
 
     args.gpu_ranks = [int(i) for i in args.gpu_ranks.split(',')]
