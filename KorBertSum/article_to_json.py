@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 import argparse
 import time
 import os
@@ -11,7 +9,6 @@ import six
 import glob
 import numpy as np
 from tqdm import tqdm
-
 
 
 def main():
@@ -29,7 +26,7 @@ def main():
     
     # Initialize directory
     if not os.path.exists(output):
-        os.makedirs(directory)
+        os.makedirs(output)
         
     if not news_dir.endswith("csv"):
         raise AssertionError("file is not a csv")

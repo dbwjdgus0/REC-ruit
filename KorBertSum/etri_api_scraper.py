@@ -5,7 +5,8 @@ import json
 import os
 import time
 import urllib3
-import jsonlines
+#import logger
+import sys
 from glob import glob
 
 
@@ -13,9 +14,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--api_key', type=str, default='', help='etri api key')
     parser.add_argument('--directory', type=str, default='output', help='JSON storage directory')
-    parser.add_argument('--input', type=str, default='', help='input jsonl file path')
+    parser.add_argument('--input', type=str, default='', help='input text file path')
     parser.add_argument('--first_index', type=int, default=0, help='First index of articles')
-    parser.add_argument('--last_index', type=int, default=42803, help='Last (latest) index of articles')
+    parser.add_argument('--last_index', type=int, default=5000, help='Last (latest) index of articles')
 
     args = parser.parse_args()
     api_key = args.api_key
@@ -28,18 +29,18 @@ def main():
     if not os.path.exists(directory):
         os.makedirs(directory)
         
-
     ### main process ###
+    lines = []
+    with open(input, 'r') as f:
+        for line in f:
+            lines.append(line.strip())
+    lines = lines[first_index:last_index]
     
-    with open(input, 'rb') as reader:
-        mylist = list(jsonlines.Reader(reader))
-    mylist = mylist[first_index:last_index]
-    
-    l = len(mylist)
+    l = len(lines)
     printProgressBar(0, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
     
-    for idx,items in enumerate(mylist):
-        target = ' '.join(items['article_original'])
+    for idx,line in enumerate(lines):
+        target = line
         processed_text = do_lang(api_key,target)
         if processed_text.startswith('openapi error')==True:
             print('openapi error')
@@ -62,8 +63,9 @@ def do_lang ( openapi_key, text ) :
     if json_result == -1:
         json_reason = json_data["reason"]
         if "Invalid Access Key" in json_reason:
-            logger.info(json_reason)
-            logger.info("Please check the openapi access key.")
+            # logger.info(json_reason)
+            # logger.info("Please check the openapi access key.")
+            sys.stderr("Please check the openapi access key.")
             sys.exit()
         return "openapi error - " + json_reason
     else:
