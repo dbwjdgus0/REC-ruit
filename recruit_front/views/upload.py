@@ -4,7 +4,7 @@ from .main_views import bp
 
 # 업로드 HTML 렌더링
 @bp.route('/upload')
-def render_file():
+def upload_page():
     return render_template('upload.html')
 
 # 파일 업로드 처리
@@ -13,5 +13,5 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         # 저장할 경로 + 파일명
-        f.save(secure_filename(f.filename))
-        return 'uploads 디렉토리 -> 파일 업로드 성공'
+        f.save('./uploads/' + secure_filename(f.filename))
+        return render_template('check.html')

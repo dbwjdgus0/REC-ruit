@@ -13,11 +13,12 @@ const downloadButton = document.querySelector(".download-button")
 const previewPlayer = document.querySelector("#preview")
 const recordingPlayer = document.querySelector("#recording")
 
+
 const previewDIV = document.getElementById("preview-div")
 const recordingDIV = document.getElementById("recoding-div")
-const scriptDIV = document.getElementById("recoding-script-div")
-//const showRecordViewButton = document.querySelector(".show-recordview-button")
-
+//const scriptDIV = document.getElementById("recoding-script-div")
+const first = document.getElementById("first")
+const quiz = document.getElementById("quiz")
 
 // setting
 // const recordingDuration = 15;
@@ -45,7 +46,10 @@ function videoStart() {
     swal("녹화 시작", "중지 또는 녹화 보기를 누를시 자동 저장 됩니다!", 'info');
 	previewDIV.style.display = "";
 	recordingDIV.style.display = "none";
-	scriptDIV.style.display = "none";
+//	scriptDIV.style.display = "none";
+	first.style.display = "none"
+	quiz.style.display = "";
+
 }
 
 // 화면 녹화
@@ -60,23 +64,26 @@ function startRecording(stream){ // 스트림을 인자로 넘겨 받고
 function stopRecording() {
     previewPlayer.srcObject.getTracks().forEach((track) => track.stop()); // 배열 형태의 스트림에 대한 정보 track 중지
     recorder.stop(); // 녹화를 중단함
-    // console.log(recordedChunks) recordedChunks 안에 Blob이 담겨 있음, 미디어 객체임
+    console.log(recordedChunks) // recordedChunks 안에 Blob이 담겨 있음, 미디어 객체임
+
 }
 
 // 녹화 영상 실행
-function playRecording() {
-    const recordedBlob = new Blob(recordedChunks, { type: "video/webm"}); // web 화면 출력용
-    const recordedBlob2 = new Blob(recordedChunks, { type: "video/mp4"}); // mp4 필요 피드백 반영
+function playVideo() {
+//    const recordedBlob = new Blob(recordedChunks, { type: "video/webm"}); // web 화면 출력용
+    const recordedBlob = new Blob(recordedChunks, { type: "video/mp4"}); // mp4 필요 피드백 반영
+
     recordingPlayer.src = URL.createObjectURL(recordedBlob); // src를 적용해 사용함
     recordingPlayer.play()
 
     downloadButton.href=recordingPlayer.src;
-    downloadButton.download = `recording_${new Date()}.webm`;
-    downloadButton
+    downloadButton.download = `recording_${new Date()}.mp4`;
     swal("녹화 내용 재생", "녹화된 영상은 다운로드 가능합니다", 'success');
 	previewDIV.style.display = "none";
 	recordingDIV.style.display  = "";
-	scriptDIV.style.display = "";
+//	scriptDIV.style.display = "";
+	recordButton.style.display = "none";
+	stopButton.style.display = "none";
 }
 
 // 실험
@@ -99,4 +106,4 @@ function getHide(){
 // event
 recordButton.addEventListener("click", videoStart);
 stopButton.addEventListener("click", stopRecording);
-playButton.addEventListener("click", playRecording);
+playButton.addEventListener("click", playVideo);

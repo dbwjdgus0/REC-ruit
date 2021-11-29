@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8" />
 		<title>REC:ruit - Visual Resume</title>
 		<meta name="description" content="" />
 		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
@@ -184,7 +184,6 @@
 
 			</div>
 
-
 			<!--
 				PAGE HEADER
 
@@ -219,36 +218,50 @@
 			<link rel="stylesheet" href="../static/assets/css/camera.css">
 			<!-- VIDEO -->
 			<section style="background-image: url('../static/demo_files/images/1200x800/28-min.jpg');">
+				<center><h1>Upload Page</h1></center>
 				<div class="wrapper">
 					<div class="button-container">
-						<button class="record-button">시작</button>
-						<button class="stop-button">중지</button>
-						<button class="play-button">동영상 보기</button>
-						<button style><a class="download-button" >다운로드</a></button>
+
+						<hr width="100%" color="black"/>
+						<center><h3>Upload File!</h3></center>
+						<hr width="100%" color="black"/>
+
+						<img src="{{ url_for('static',filename='assets/images/upload.png') }}", width="100"
+        					style="margin-left: auto; margin-right: auto; display: block;")/>
+
+						<br><br><center>
+						<form action = "http://localhost:5000/fileUpload" method = "POST"
+							 enctype = "multipart/form-data">
+						<input type = "file" name = "file[]" multiple =""/>
+						<input type = "submit"/>
+						</form></center>
+<!--						<button class="record-button">시작</button>-->
+<!--						<button class="stop-button">중지</button>-->
+<!--						<button class="play-button">동영상 보기</button>-->
+<!--						<button style><a class="download-button" >다운로드</a></button>-->
 					</div>
 
 
-					<div class="video-container">
-						<div class="video-item" id="preview-div">
-							<h3 id="first">시작을 누르면 녹화와 동시에 문제가 보입니다</h3>
-							<h3 id="quiz" class="bold font-raleway wow fadeInUp" data-wow-delay="1.0s" style="text-align:center; display:none;">1. 간단한 자기소개를 진행해 주세요</h3>
-							<video autoplay muted id="preview"></video>
-						</div>
-						<div class="video-item" id="recoding-div" style="display: none; padding-right: 15px;">
-							<h3>업로드를 위해서 파일을 다운로드 하세요</h3>
-							<video id="recording"></video>
-						</div>
-<!--						<div class="video-item" id="recoding-script-div" style="display: none; padding-left: 15px;">-->
-<!--							<h3>스크립트</h3>-->
-<!--							<div id="recording-script">
-								</div>-->
+<!--					<div class="video-container">-->
+<!--						<div class="video-item" id="preview-div">-->
+<!--							<h3 id="first">시작을 누르면 두번째 문제가 보입니다</h3>-->
+<!--							<h3 id="quiz" class="bold font-raleway wow fadeInUp" data-wow-delay="1.0s" style="text-align:center; display:none;" >2.웹 개발자로 발휘할 수 있는 역량을 어필해주세요.</h3>-->
+<!--							<video autoplay muted id="preview"></video>-->
 <!--						</div>-->
-					</div>
+<!--						<div class="video-item" id="recoding-div" style="display: none; padding-right: 15px;">-->
+<!--							<h3>업로드를 위해서 파일을 다운로드 하세요</h3>-->
+<!--							<video id="recording"></video>-->
+<!--						</div>-->
+<!--&lt;!&ndash;						<div class="video-item" id="recoding-script-div" style="display: none; padding-left: 15px;">&ndash;&gt;-->
+<!--&lt;!&ndash;							<h3>스크립트</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;							<div id="recording-script"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;						</div>&ndash;&gt;-->
+<!--					</div>-->
 				</div>
 				<script src="../static/assets/js/camera.js"></script>
 				<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 				<div style="text-align: center;">
-					<a id="next" class="btn btn-default btn-lg wow fadeIn" data-wow-delay="1.0s" href="/company1-2">다음</a>
+					<a id="next" class="btn btn-default btn-lg wow fadeIn" data-wow-delay="1.0s" href="/company1-1">다음</a>
 				</div>
 		</section>
 
