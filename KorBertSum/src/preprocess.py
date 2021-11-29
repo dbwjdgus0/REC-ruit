@@ -40,7 +40,7 @@ if __name__ == '__main__':
     parser.add_argument("-map_path", default='../data/')
     parser.add_argument("-raw_path", default='../json_data/')
     parser.add_argument("-save_path", default='../bert_data/')
-    parser.add_argument("-vocab_file_path", default='../../vocab_file/korbert/001_bert_morp_pytorch/vocab.korean_morp.list')
+    parser.add_argument("-vocab_file_path", default='../../korbert/001_bert_morp_pytorch/vocab.korean_morp.list')
 
     parser.add_argument("-shard_size", default=2000, type=int)
     parser.add_argument('-min_nsents', default=3, type=int)
