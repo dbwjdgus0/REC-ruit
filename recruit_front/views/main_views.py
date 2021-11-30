@@ -34,6 +34,10 @@ def company1_2():
 def manage1():
     return render_template('manage1.html', file_list=file_list)
 
+@bp.route('/manage2')
+def manage2():
+    return render_template('manage2.html', file_list=file_list)
+
 @bp.route('/upload_check2.html')
 def upload_check():
     return render_template('upload_check2.html', file_list=file_list)
@@ -62,7 +66,7 @@ def upload_file():
         # 저장할 경로 + 파일명
             f.save('aidea/static/uploads/' + secure_filename(f.filename))
             file_list.append('/static/uploads/' + secure_filename(f.filename))
-        # print(file_list)
+        print(file_list)
     return render_template('upload_check.html')
 
 
