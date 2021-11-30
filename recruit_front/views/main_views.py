@@ -64,9 +64,13 @@ def upload_file():
         upload = request.files.getlist("file[]")
         for f in upload:
         # 저장할 경로 + 파일명
-            f.save('aidea/static/uploads/' + secure_filename(f.filename))
-            file_list.append('/static/uploads/' + secure_filename(f.filename))
+            fname = '/Users/hyunn/Allen_WIP/competitions/ai_idea/recruit/REC-ruit/recruit_front/static/' + secure_filename(f.filename)
+            f.save(fname)
+            file_list.append(fname)
         print(file_list)
+        
+        #여기서 음성인식
+        
     return render_template('upload_check.html')
 
 
