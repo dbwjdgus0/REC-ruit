@@ -229,12 +229,23 @@
 						<img src="{{ url_for('static',filename='assets/images/upload.png') }}", width="100"
         					style="margin-left: auto; margin-right: auto; display: block;")/>
 
-						<br><br><center>
+						<br><br>
+						<center>
 						<form action = "http://localhost:5000/fileUpload" method = "POST"
 							 enctype = "multipart/form-data">
 						<input type = "file" name = "file[]" multiple="multiple" />
 						<input type = "submit"/>
-						</form></center>
+						</form>
+<!--						<div class="video-item" id="recoding-script-div" style="">-->
+<!--							<h3>스크립트</h3>-->
+<!--								<form>-->
+<!--									<p><textarea cols="63" rows="15">-->
+<!--									</textarea></p>-->
+<!--								</form>-->
+
+
+<!--						</div>-->
+						</center>
 <!--						<button class="record-button">시작</button>-->
 <!--						<button class="stop-button">중지</button>-->
 <!--						<button class="play-button">동영상 보기</button>-->

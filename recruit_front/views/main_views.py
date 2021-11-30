@@ -4,6 +4,7 @@ import os                                              # 용량 제한 단위는
                                                        # app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 16MB
 
 bp = Blueprint('main', __name__, url_prefix='/')
+file_list = []
 
 @bp.route('/')
 def employee():
@@ -31,7 +32,11 @@ def company1_2():
 
 @bp.route('/manage1')
 def manage1():
-    return render_template('manage1.html')
+    return render_template('manage1.html', file_list=file_list)
+
+@bp.route('/upload_check2.html')
+def upload_check():
+    return render_template('upload_check2.html', file_list=file_list)
 
 
 # 파일 리스트
@@ -55,5 +60,9 @@ def upload_file():
         upload = request.files.getlist("file[]")
         for f in upload:
         # 저장할 경로 + 파일명
-            f.save('/Users/hyunn/Allen_WIP/competitions/ai_idea/recruit/REC-ruit' + secure_filename(f.filename))
+            f.save('aidea/static/uploads/' + secure_filename(f.filename))
+            file_list.append('/static/uploads/' + secure_filename(f.filename))
+        # print(file_list)
     return render_template('upload_check.html')
+
+
