@@ -27,6 +27,64 @@ from others.logging import logger
 # build_trainer의 dependency package pyrouge.utils가 import되지 않아 직접 셀에 삽입
 from others.logging import logger, init_logger
 
+if __name__=='__main__':
+
+    args = easydict.EasyDict({
+        "encoder":'classifier',
+        "mode":'summary',
+        "bert_data_path":'../bert_data/korean',
+        "model_path":'../models/bert_classifier_10000',
+        "bert_model":'../../korbert/001_bert_morp_pytorch',
+        "result_path":'../results/korean',
+        "temp_dir":'.',
+        "bert_config_path":'../../korbert/001_bert_morp_pytorch/bert_config.json',
+        "batch_size":1000,
+        "use_interval":True,
+        "hidden_size":128,
+        "ff_size":512,
+        "heads":4,
+        "inter_layers":2,
+        "rnn_size":512,
+        "param_init":0,
+        "param_init_glorot":True,
+        "dropout":0.1,
+        "optim":'adam',
+        "lr":2e-3,
+        "report_every":1,
+        "save_checkpoint_steps":5,
+        "block_trigram":True,
+        "recall_eval":False,
+        "accum_count":1,
+        "world_size":1,
+        "visible_gpus":'-1',
+        "gpu_ranks":'0',
+        "log_file":'../logs/bert_classifier',
+        "test_from":'../models/bert_classifier_10000/model_step_1000.pt'
+    })
+
+    args.gpu_ranks = [int(i) for i in args.gpu_ranks.split(',')]
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.visible_gpus
+
+    init_logger(args.log_file)
+    device = "cpu" if args.visible_gpus == '-1' else "cuda"
+    device_id = 0 if device == "cuda" else -1
+    model_flags = ['hidden_size', 'ff_size', 'heads', 'inter_layers','encoder','ff_actv', 'use_interval','rnn_size']
+    
+    ####################################################
+    openapi_key = '220c9e91-8f30-442a-a8a5-5dffc2aab0c6'
+    ####################################################
+
+    document = sys.stdin.readlines()
+    test = " ".join([ line.strip() for line in document])
+    input_ids = News_to_input(test, openapi_key)        
+    summaried = summary(args, input_ids, -1, '', None)
+    pred_lst = list(summaried[0][:3])
+    final_text = ''
+    for i,a in enumerate(list(map(lambda x: x.strip(),test.split('.')))):
+        if i in pred_lst:
+            final_text = final_text+a+'. '
+
+    print(final_text)
 
 def build_trainer(args, device_id, model,
                   optim):
@@ -478,64 +536,4 @@ def News_to_input(text, openapi_key):
                "tgt_txt":'hehe'}
     b_list = []
     b_list.append(b_data_dict) 
-    return b_list
-
-if __name__=='__main__':
-
-    args = easydict.EasyDict({
-        "encoder":'classifier',
-        "mode":'summary',
-        "bert_data_path":'../bert_data/korean',
-        "model_path":'../models/bert_classifier_10000',
-        "bert_model":'../../korbert/001_bert_morp_pytorch',
-        "result_path":'../results/korean',
-        "temp_dir":'.',
-        "bert_config_path":'../../korbert/001_bert_morp_pytorch/bert_config.json',
-        "batch_size":1000,
-        "use_interval":True,
-        "hidden_size":128,
-        "ff_size":512,
-        "heads":4,
-        "inter_layers":2,
-        "rnn_size":512,
-        "param_init":0,
-        "param_init_glorot":True,
-        "dropout":0.1,
-        "optim":'adam',
-        "lr":2e-3,
-        "report_every":1,
-        "save_checkpoint_steps":5,
-        "block_trigram":True,
-        "recall_eval":False,
-        "accum_count":1,
-        "world_size":1,
-        "visible_gpus":'-1',
-        "gpu_ranks":'0',
-        "log_file":'../logs/bert_classifier',
-        "test_from":'../models/bert_classifier_10000/model_step_1000.pt'
-    })
-
-    args.gpu_ranks = [int(i) for i in args.gpu_ranks.split(',')]
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.visible_gpus
-
-    init_logger(args.log_file)
-    device = "cpu" if args.visible_gpus == '-1' else "cuda"
-    device_id = 0 if device == "cuda" else -1
-    model_flags = ['hidden_size', 'ff_size', 'heads', 'inter_layers','encoder','ff_actv', 'use_interval','rnn_size']
-    
-    ####################################################
-    openapi_key = '220c9e91-8f30-442a-a8a5-5dffc2aab0c6'
-    ####################################################
-
-    document = sys.stdin.readlines()
-    test = " ".join([ line.strip() for line in document])
-    input_ids = News_to_input(test, openapi_key)        
-    summaried = summary(args, input_ids, -1, '', None)
-    pred_lst = list(summaried[0][:3])
-    final_text = ''
-    for i,a in enumerate(list(map(lambda x: x.strip(),test.split('.')))):
-        if i in pred_lst:
-            final_text = final_text+a+'. '
-
-    print(final_text)
-    
+    return b_list    
