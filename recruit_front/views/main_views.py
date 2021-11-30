@@ -55,5 +55,5 @@ def upload_file():
         upload = request.files.getlist("file[]")
         for f in upload:
         # 저장할 경로 + 파일명
-            f.save('aidea/templates/uploads/' + secure_filename(f.filename))
+            f.save('/Users/hyunn/Allen_WIP/competitions/ai_idea/recruit/REC-ruit' + secure_filename(f.filename))
     return render_template('upload_check.html')

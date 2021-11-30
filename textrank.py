@@ -1,6 +1,8 @@
+import sys
 import networkx as nx
 from itertools import chain
 from collections import Counter
+
 
 def scan_vocabulary(sentences, min_count=1, stop_words=set()):
   
@@ -51,9 +53,15 @@ def word_graph(sentences, min_count=1, min_cooccurrence=1, window=3, stop_words=
         G.add_node(i, name=node_name)
     for (n1, n2), coor in coor_dict.items():
         G.add_edge(n1, n2, coor_count=coor)
-    return G
+    return G, idx_to_vocab
+
+if __name__=='__main__':
+    text = sys.stdin.read()
+    text = [s.strip() for s in text.split('.')]
+    graph, i_to_v = word_graph(text)
+    rank = nx.pagerank(graph, weight='coor_count')
+    rank_sorted = sorted(list(rank.keys()), key=lambda x: -1 * rank[x])
+    for each in rank_sorted[:15]:
+        print(f'{i_to_v[each]}, {rank[each]}')
 
 
-
-
-#nx.pagerank(G, weight='coor_count')
