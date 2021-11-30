@@ -29,10 +29,15 @@ def company1_1():
 def company1_2():
     return render_template('company1-2.html')
 
+@bp.route('/manage1')
+def manage1():
+    return render_template('manage1.html')
+
+
 # 파일 리스트
 @bp.route('/list')
 def list_page():
-	file_list = os.listdir("./uploads")
+	file_list = os.listdir("aidea/templates/uploads/")
 	html = """<center><a href="/">홈페이지</a><br><br>"""
 	html += "file_list: {}".format(file_list) + "</center>"
 	return html
@@ -44,10 +49,11 @@ def company_upload():
 
 
 # 파일 업로드 처리
-@bp.route('/fileUpload', methods = ['GET', 'POST'])
+@bp.route('/fileUpload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        f = request.files.getlist("file[]")
+        upload = request.files.getlist("file[]")
+        for f in upload:
         # 저장할 경로 + 파일명
-        f.save('./uploads/' + secure_filename(f.filename))
-        return render_template('check.html')
+            f.save('aidea/templates/uploads/' + secure_filename(f.filename))
+    return render_template('upload_check.html')

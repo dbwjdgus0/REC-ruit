@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8"/>
 		<title>REC:ruit - Visual Resume</title>
 		<meta name="description" content="" />
 		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
@@ -151,27 +151,23 @@
 									</li>
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main">
-									                                    <li>
-                                    <a href="/">홈</a>
-                                    </li>
 									<li>
-										<a href="#">직무 카테고리</a>
-									</li>
+										<a href="/employer">관리자 홈</a>
+										</li>
 
-									<li>
-										<a href="#">커리어 쌓기</a>
-									</li>
+										<li>
+											<a href="#">관리자 가입</a>
+										</li>
 
-									<li>
-										<a href="#">채용 공고</a>
-									</li>
-
-
+										<li>
+											<a href="#">지원자 확인하기</a>
+										</li>
 									<li class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"><!-- THEMATIC -->
-										<a class="dropdown-toggle noicon" href="/employer">
+										<a class="dropdown-toggle noicon" href="/">
 											<span class="badge badge-danger float-right fs-11">mode</span>
-											<b>기업</b>
+											<b>REC: 홈</b>
 										</a>
+
 									</li>
 								</ul>
 
@@ -183,6 +179,7 @@
 				<!-- /Top Nav -->
 
 			</div>
+
 
 			<!--
 				PAGE HEADER
@@ -204,11 +201,11 @@
 			<section class="page-header page-header-xs">
 				<div class="container">
 
-					<h1>FORESE</h1>
+					<h1>FORESE-MANAGE</h1>
 
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb">
-						<li><a href="/">Home</a></li>
+						<li><a href="/employer">Home</a></li>
 						<li class="active">FORESE</li>
 					</ol><!-- /breadcrumbs -->
 
@@ -217,49 +214,26 @@
 			<!-- /PAGE HEADER -->
 			<link rel="stylesheet" href="../static/assets/css/camera.css">
 			<!-- VIDEO -->
-			<section style="background-image: url('../static/demo_files/images/1200x800/28-min.jpg');">
-				<center><h1>Upload Page</h1></center>
+			<section style="background-image: url('../static/demo_files/images/1200x800/unsplash12.jpg');">
 				<div class="wrapper">
-					<div class="button-container">
-
-						<hr width="100%" color="black"/>
-						<center><h3>Upload File!</h3></center>
-						<hr width="100%" color="black"/>
-
-						<img src="{{ url_for('static',filename='assets/images/upload.png') }}", width="100"
-        					style="margin-left: auto; margin-right: auto; display: block;")/>
-
-						<br><br><center>
-						<form action = "http://localhost:5000/fileUpload" method = "POST"
-							 enctype = "multipart/form-data">
-						<input type = "file" name = "file[]" multiple="multiple" />
-						<input type = "submit"/>
-						</form></center>
-<!--						<button class="record-button">시작</button>-->
-<!--						<button class="stop-button">중지</button>-->
-<!--						<button class="play-button">동영상 보기</button>-->
-<!--						<button style><a class="download-button" >다운로드</a></button>-->
+					<div class="video-container">
+						<div class="video-item" id="preview-div" style="padding-right: 15px;">
+							<h3>지원 영상</h3>
+							<video autoplay controls>
+							<source src="aidea/templates/uploads/recording_1.mp4", type="video/mp4">
+							</video>
+						</div>
+						<div class="video-item" id="recoding-script-div" style="padding-left: 15px;">
+							<h3>스크립트</h3>
+							<div id="recording-script"></div>
+						</div>
 					</div>
-
-
-<!--					<div class="video-container">-->
-<!--						<div class="video-item" id="preview-div">-->
-<!--							<h3 id="first">시작을 누르면 두번째 문제가 보입니다</h3>-->
-<!--							<h3 id="quiz" class="bold font-raleway wow fadeInUp" data-wow-delay="1.0s" style="text-align:center; display:none;" >2.웹 개발자로 발휘할 수 있는 역량을 어필해주세요.</h3>-->
-<!--							<video autoplay muted id="preview"></video>-->
-<!--						</div>-->
-<!--						<div class="video-item" id="recoding-div" style="display: none; padding-right: 15px;">-->
-<!--							<h3>업로드를 위해서 파일을 다운로드 하세요</h3>-->
-<!--							<video id="recording"></video>-->
-<!--						</div>-->
-<!--&lt;!&ndash;						<div class="video-item" id="recoding-script-div" style="display: none; padding-left: 15px;">&ndash;&gt;-->
-<!--&lt;!&ndash;							<h3>스크립트</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;							<div id="recording-script"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;						</div>&ndash;&gt;-->
-<!--					</div>-->
 				</div>
-				<script src="../static/assets/js/camera.js"></script>
-				<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--				<script src="../static/assets/js/camera2.js"></script>-->
+<!--				<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<!--				<div style="text-align: center;">-->
+<!--					<a id="next" class="btn btn-default btn-lg wow fadeIn" data-wow-delay="1.0s" href="/company1-2">다음</a>-->
+<!--				</div>-->
 		</section>
 
 		<!-- FOOTER -->

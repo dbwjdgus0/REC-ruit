@@ -222,19 +222,12 @@
 				<div class="wrapper">
 					<div class="button-container">
 
-						<hr width="100%" color="black"/>
-						<center><h3>Upload File!</h3></center>
-						<hr width="100%" color="black"/>
-
-						<img src="{{ url_for('static',filename='assets/images/upload.png') }}", width="100"
-        					style="margin-left: auto; margin-right: auto; display: block;")/>
-
-						<br><br><center>
-						<form action = "http://localhost:5000/fileUpload" method = "POST"
-							 enctype = "multipart/form-data">
-						<input type = "file" name = "file[]" multiple="multiple" />
-						<input type = "submit"/>
-						</form></center>
+						<center>
+						<img src="{{ url_for('static',filename='assets/images/tick.png') }}", width="100"
+						  style="margin-left: auto; margin-right: auto; display: block;")/>
+							<center>
+								<p>	<h4>파일 업로드 성공!</h4></p>
+						</center>
 <!--						<button class="record-button">시작</button>-->
 <!--						<button class="stop-button">중지</button>-->
 <!--						<button class="play-button">동영상 보기</button>-->
@@ -260,6 +253,9 @@
 				</div>
 				<script src="../static/assets/js/camera.js"></script>
 				<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+				<div style="text-align: center;">
+					<a id="next" class="btn btn-default btn-lg wow fadeIn" data-wow-delay="1.0s"href="/">완료</a>
+				</div>
 		</section>
 
 		<!-- FOOTER -->
