@@ -524,10 +524,11 @@ if __name__=='__main__':
     model_flags = ['hidden_size', 'ff_size', 'heads', 'inter_layers','encoder','ff_actv', 'use_interval','rnn_size']
     
     ####################################################
-    openapi_key = 'd8b75365-827a-4892-ba76-0fa4f31e590f'
+    openapi_key = '220c9e91-8f30-442a-a8a5-5dffc2aab0c6'
     ####################################################
 
-    test = " ".join([ line.strip() for line in sys.stdin.readlines()])
+    document = sys.stdin.readlines()
+    test = " ".join([ line.strip() for line in document])
     input_ids = News_to_input(test, openapi_key)        
     summaried = summary(args, input_ids, -1, '', None)
     pred_lst = list(summaried[0][:3])
