@@ -9,7 +9,6 @@ import urllib3
 import sys
 from glob import glob
 
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--api_key', type=str, default='', help='etri api key')
@@ -82,7 +81,7 @@ def do_lang ( openapi_key, text ) :
         return return_result
 
 def save_txt(directory, first_index, idx, txt):
-    with open(directory+str(first_index+idx), 'w', encoding='utf-8') as f:
+    with open(directory+'/out'+str(first_index+idx), 'w', encoding='utf-8') as f:
         f.write(txt)
 
 # Print iterations progress
