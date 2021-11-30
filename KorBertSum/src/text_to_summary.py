@@ -535,6 +535,6 @@ if __name__=='__main__':
     for i,a in enumerate(list(map(lambda x: x.strip(),test.split('.')))):
         if i in pred_lst:
             final_text = final_text+a+'. '
-    
+
     print(final_text)
     
