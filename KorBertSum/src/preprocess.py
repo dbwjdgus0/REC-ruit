@@ -38,8 +38,8 @@ if __name__ == '__main__':
     parser.add_argument("-mode", default='format_to_bert', type=str, help='format_to_lines or format_to_bert')
     parser.add_argument("-oracle_mode", default='greedy', type=str, help='how to generate oracle summaries, greedy or combination, combination will generate more accurate oracles but take much longer time.')
     parser.add_argument("-map_path", default='../data/')
-    parser.add_argument("-raw_path", default='../json_data/')
-    parser.add_argument("-save_path", default='../bert_data/')
+    parser.add_argument("-raw_path", default='../json_data_2/')
+    parser.add_argument("-save_path", default='../bert_data_2/')
     parser.add_argument("-vocab_file_path", default='../../korbert/001_bert_morp_pytorch/vocab.korean_morp.list')
 
     parser.add_argument("-shard_size", default=2000, type=int)
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-dataset', default='', help='train, valid or test, defaul will process all datasets')
 
-    parser.add_argument('-n_cpus', default=2, type=int)
+    parser.add_argument('-n_cpus', default=8, type=int)
 
     args = parser.parse_args()
 #    init_logger(args.log_file)
